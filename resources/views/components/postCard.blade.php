@@ -1,6 +1,6 @@
 @props(['post', 'full' => false])
 
-<div class="card">
+<div class="p-3 border-2 border-gray-200 rounded-md">
     {{-- Title --}}
     <h2 class="font-bold text-xl">Title: {{ $post->title }}</h2>
 
@@ -19,11 +19,11 @@
     @if ($full)
     <p>{{ ($post->body) }}</p>
     @else
-    <p>{{ Str::words($post->body, 15) }}</p>
-    <a href="{{ route('posts.show', $post) }}" class="ml-2 text-blue-500">Read more &rarr;</a>
+    <p class="mb-3">{{ Str::words($post->body, 15) }}</p>
+    <a href="{{ route('posts.show', $post) }}" class="bg-slate-200 py-1 px-2 rounded-xl text-blue-500">Read more &rarr;</a>
     @endif
     </div>
-    <div class="flex items-center justify-end gap-4 mt-6">
+    <div class="flex items-center justify-end gap-4">
         {{ $slot }}
     </div>
 </div>

@@ -49,7 +49,7 @@
                     <form action="{{ route('posts.destroy', $post) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="bg-red-500 text-white px-3 py-2 text-xs rounded-md">Delete</button>
+                        <button class="bg-red-500 text-white px-3 py-2 text-xs rounded-md mt-4">Delete</button>
                     </form>
                 </x-postCard>
             @endforeach
