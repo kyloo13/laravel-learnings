@@ -31,7 +31,7 @@
                     <p class="error">{{ $message }}</p>
                 @enderror
             </div>
-            <button class="primary-btn">Post</button>
+            <button class="primary-btn bg-emerald-800 hover:bg-emerald-900">Post</button>
         </form>
     </div>
 
@@ -42,6 +42,9 @@
         <div class="grid grid-cols-2 gap-6">
             @foreach ($posts as $post)
                 <x-postCard :post="$post">
+                    <a href="{{ route('posts.edit', $post) }}" class="bg-green-500 text-white px-3 py-2 text-xs rounded-md mt-4">
+                        Update
+                    </a>
                     <form action="{{ route('posts.destroy', $post) }}" method="post">
                         @csrf
                         @method('DELETE')

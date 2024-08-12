@@ -44,6 +44,7 @@ class PostController extends Controller
         Auth::user()->posts()->create($fields);
 
         return back()->with('success', 'Your post was posted!');
+
     }
 
     /**
@@ -59,7 +60,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -67,7 +68,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $fields = $request->validate([
+            'title' => ['required', 'max:255', 'min:4'],
+            'body' => ['required', 'max:255', 'min:4'],
+        ]);
+
+        $post->update($fields);
+
+        return redirect('dashboard')->with('success', 'Your post was updated!');
     }
 
     /**

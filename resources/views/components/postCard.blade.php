@@ -8,7 +8,7 @@
     <div class="text-xs font-light mb-4">
         <span>Posted {{ $post->created_at->diffForHumans() }} </span>
         <a href="{{ route('posts.user', $post->user) }}"
-        class="text-blue-500 font-medium">
+        class="text-emerald-500 font-medium">
         {{
         $post->user->username
         }}</a>
@@ -20,7 +20,7 @@
     <p>{{ ($post->body) }}</p>
     @else
     <p class="mb-3">{{ Str::words($post->body, 15) }}</p>
-    <a href="{{ route('posts.show', $post) }}" class="bg-slate-200 py-1 px-2 rounded-xl text-blue-500">Read more &rarr;</a>
+    <a href="{{ route('posts.show', $post) }}" class="bg-slate-200 py-1 px-2 rounded-xl text-emerald-500">Read more &rarr;</a>
     @endif
     </div>
     <div class="flex items-center justify-end gap-4">
