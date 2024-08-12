@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -18,7 +19,6 @@ class PostController extends Controller
         // dd('$posts');
         //
         return view('posts.index', ['posts' => $posts]);
-
     }
 
     /**
@@ -44,7 +44,6 @@ class PostController extends Controller
         Auth::user()->posts()->create($fields);
 
         return back()->with('success', 'Your post was posted!');
-
     }
 
     /**
@@ -76,10 +75,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-
-        $post->delete();
+        DB::table('posts')
+            ->where('id', $post->id)
+            ->delete();
 
         return back()->with('delete', 'Your post was deleted!');
-
     }
 }
