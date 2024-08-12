@@ -37,13 +37,13 @@ class PostController extends Controller
     {
 
         $fields = $request->validate([
-            'title' => ['required', 'max:255', 'min:3'],
+            'title' => ['required', 'max:255', 'min:4'],
             'body' => ['required', 'max:255', 'min:4'],
         ]);
 
         Auth::user()->posts()->create($fields);
 
-        return back()->with('success', 'successfully posted');
+        return back()->with('success', 'Your post was posted!');
 
     }
 
@@ -80,6 +80,6 @@ class PostController extends Controller
 
         $post->delete();
 
-        return back()->with('delete', 'Post deleted!');
+        return back()->with('delete', 'Your post was deleted!');
     }
 }
