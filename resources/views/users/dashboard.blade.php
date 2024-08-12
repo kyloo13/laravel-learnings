@@ -7,13 +7,9 @@
 
         {{-- Session Messages --}}
         @if (session('success'))
-            <div class="mb-2">
-                <x-flashMsg msg="{{ session('success') }}" />
-            </div>
+            <x-flashMsg msg="{{ session('success') }}" />
         @elseif (@session('delete'))
-            <div class="mb-2">
-                <x-flashMsg background="bg-red-500" msg="{{ session('delete') }}" />
-            </div>
+            <x-flashMsg msg="{{ session('delete') }}" background="bg-red-500" />
         @endif
 
         <form action="{{ route('posts.store') }}" method="post">
