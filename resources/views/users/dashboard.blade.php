@@ -10,6 +10,10 @@
             <div class="mb-2">
                 <x-flashMsg msg="{{ session('success') }}" />
             </div>
+        @elseif (@session('delete'))
+            <div class="mb-2">
+                <x-flashMsg background="bg-red-500" msg="{{ session('delete') }}" />
+            </div>
         @endif
 
         <form action="{{ route('posts.store') }}" method="post">
@@ -41,9 +45,15 @@
         <h2 class="font-bold mb-4">Your Latests Posts</h2>
         <div class="grid grid-cols-2 gap-6">
             @foreach ($posts as $post)
-            <x-postCard :post="$post"/>
-        @endforeach
-    </div>
+                <x-postCard :post="$post">
+                    <form action="{{ route('posts.destroy', $post) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="bg-red-500 text-white px-3 py-2 text-xs rounded-md">Delete</button>
+                    </form>
+                </x-postCard>
+            @endforeach
+        </div>
     </div>
     <div class="mt-6">
         {{ $posts->links() }}
