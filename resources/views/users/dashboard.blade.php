@@ -42,13 +42,15 @@
         <div class="grid grid-cols-2 gap-6">
             @foreach ($posts as $post)
                 <x-postCard :post="$post">
-                    <a href="{{ route('posts.edit', $post) }}" class="bg-green-500 text-white px-3 py-2 text-xs rounded-md mt-4">
-                        Update
-                    </a>
+                        <a href="{{ route('posts.edit', $post) }}" class="bg-green-500 text-white px-3 py-2 text-xs rounded-md mt-4">
+                            Update
+                        </a>
                     <form action="{{ route('posts.destroy', $post) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="bg-red-500 text-white px-3 py-2 text-xs rounded-md mt-4">Delete</button>
+                        <button class="bg-red-500 text-white px-3 py-2 text-xs rounded-md mt-4">
+                            Delete
+                        </button>
                     </form>
                 </x-postCard>
             @endforeach
