@@ -1,6 +1,6 @@
 <x-layout>
     <div class="card">
-        <a href="{{ route('dashboard') }}" class="block mb-2 text-xs text-emerald-500">&larr; Go back to your dashboard</a>
+        <a href="{{ route('dashboard') }}" class="block mb-2 text-xs text-emerald-500">&larr; Back</a>
         <h2 class="font-bold mb-4">Update your post</h2>
     <form action="{{ route('posts.update', $post) }}" method="post">
         @csrf
