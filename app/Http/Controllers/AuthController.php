@@ -22,7 +22,7 @@ class AuthController extends Controller
         $user= User::create($fields);
 
         //login
-        Auth::loginUsingId($user);
+        Auth::login($user);
 
         //Redirect
         return redirect()->route('posts.index');

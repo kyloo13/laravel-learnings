@@ -34,7 +34,7 @@
                 <p class="error">{{ $message }}</p>
                 @enderror
             </div>
-            <button class="primary-btn">Register</button>
+            <button class="primary-btn bg-emerald-800 hover:bg-emerald-900">Register</button>
         </form>
     </div>
 </x-layout>

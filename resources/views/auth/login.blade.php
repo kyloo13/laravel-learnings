@@ -30,7 +30,7 @@
             @error('failed')
             <p class="error">{{ $message }}</p>
             @enderror
-            <button class="primary-btn">Login</button>
+            <button class="primary-btn bg-emerald-800 hover:bg-emerald-900">Login</button>
         </form>
     </div>
 </x-layout>
