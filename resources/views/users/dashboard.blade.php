@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-4xl">Hello {{ auth()->user()->username ?? '' }}</h1>
+    <h1 class="text-4xl">Hello {{ auth()->user()->username ?? '' }}, you have {{ count($posts) }} posts</h1>
 
     {{-- Create Post Form --}}
     <div class="card mb-4">
@@ -12,7 +12,7 @@
             <x-flashMsg msg="{{ session('delete') }}" background="bg-red-500" />
         @endif
 
-        <form action="{{ route('posts.store') }}" method="post">
+        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             {{-- Title --}}
             <div class="mb-4">
@@ -31,6 +31,16 @@
                     <p class="error">{{ $message }}</p>
                 @enderror
             </div>
+
+            {{-- Post Image --}}
+            <div class="mb-4">
+                <label for="image">Cover photo</label>
+                <input type="file" name="image" id="image"> 
+                @error('image')
+                    <p class="error">{{ $message }}</p>
+                @enderror
+            </div>
+
             <button class="primary-btn bg-emerald-800 hover:bg-emerald-900">Post</button>
         </form>
     </div>

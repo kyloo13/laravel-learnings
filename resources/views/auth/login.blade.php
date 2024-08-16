@@ -8,7 +8,7 @@
             {{-- Email --}}
             <div class="mb-4">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="" class="input">
+                <input type="email" name="email" id="" class="input" value="{{ old('email') }}">
                 @error('email')
                 <p class="error">{{ $message }}</p>
                 @enderror

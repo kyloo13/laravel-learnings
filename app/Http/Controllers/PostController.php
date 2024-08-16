@@ -9,6 +9,7 @@ use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller implements HasMiddleware
 {
@@ -47,6 +48,11 @@ class PostController extends Controller implements HasMiddleware
      */
     public function store(Request $request)
     {
+
+        dd($request);
+
+        Storage::put('post_images', $request);
+
 
         $fields = $request->validate([
             'title' => ['required', 'max:255', 'min:4'],
