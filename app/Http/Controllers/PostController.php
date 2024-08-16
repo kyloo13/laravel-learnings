@@ -49,10 +49,7 @@ class PostController extends Controller implements HasMiddleware
     public function store(Request $request)
     {
 
-        dd($request);
-
-        Storage::put('post_images', $request);
-
+        Storage::put('post_images', $request->image);
 
         $fields = $request->validate([
             'title' => ['required', 'max:255', 'min:4'],
